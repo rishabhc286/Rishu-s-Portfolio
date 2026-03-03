@@ -119,7 +119,7 @@ This portfolio embraces a **neo-brutalist aesthetic** — a design language that
 Have a project in mind or just want to say hi?
 
 **WhatsApp**: Hit the contact form on the site for a direct message
-**GitHub**: [@your-username](https://github.com/your-username)
+**GitHub**: [@rishabhc286](https://github.com/rishabhc286)
 
 ---
 
