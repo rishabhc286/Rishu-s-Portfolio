@@ -22,7 +22,7 @@ const Terminal = () => {
       type: "response",
       content: (
         <div className="mb-2">
-          <p>Welcome to Rishi's Portfolio Terminal v1.0.0</p>
+          <p>Welcome to Rishu's Portfolio Terminal v1.0.0</p>
           <p>
             I am a conversational AI. Type{" "}
             <span className="text-green-400">help</span> for commands, or just
