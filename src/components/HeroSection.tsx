@@ -118,7 +118,7 @@ const HeroSection = () => {
         <p className="font-mono text-xs text-foreground/60 leading-relaxed font-medium">
           // portfolio.tsx
           <br />
-          // version: 1.0.0
+          // version: 1.1.0
           <br />
           // status: production
           <br />

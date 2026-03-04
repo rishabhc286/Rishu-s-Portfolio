@@ -1,5 +1,6 @@
 import SectionBlock from "./SectionBlock";
 import GithubGraph from "./GithubGraph";
+import SkillBadge from "./SkillBadge";
 
 const skillCategories = [
   {
@@ -14,8 +15,8 @@ const skillCategories = [
       // "Framer Motion",
       // "Shadcn UI",
       // "Vite",
-        "HTML",
-        "CSS",
+      "HTML",
+      "CSS",
     ],
   },
   // {
@@ -25,59 +26,59 @@ const skillCategories = [
   {
     title: "Backend & DB",
     skills: ["Node.js",
-        "Firebase",
-        "Express.js",
-        // "MongoDB",
-        // "Hive",
-        // "REST APIs"
+      "Firebase",
+      "Express.js",
+      // "MongoDB",
+      // "Hive",
+      // "REST APIs"
     ],
   },
   {
     title: "Web3 & AI",
     skills: [
-        // "Aptos",
-        // "Move",
-        "AI Integration",
-        // "Prompt Engineering"
+      // "Aptos",
+      // "Move",
+      "AI Integration",
+      // "Prompt Engineering"
     ],
   },
   {
     title: "Tools & Others",
     skills: ["Git",
-        "GitHub",
-        // "Figma",
-        // "Vitest",
-        // "Lucide React",
-        "Vercel",
-        "Ubuntu Linux",
-        "Webstorm",
-        "Intellij IDEA",
-        "After Effects",
-        "Blender"
+      "GitHub",
+      // "Figma",
+      // "Vitest",
+      // "Lucide React",
+      "Vercel",
+      "Ubuntu Linux",
+      "Webstorm",
+      "Intellij IDEA",
+      "After Effects",
+      "Blender"
     ],
   },
-    {
+  {
     title: "Programming Languages",
     skills: ["Java",
-        "Python",
-        "C",
+      "Python",
+      "C",
     ],
   },
-    {
+  {
     title: "Data Structures & Algorithms",
     skills: ["Arrays",
-        "Linked Lists",
-        "Stacks",
-        "Queues",
-        "Trees",
-        "Graphs",
-        "Hashing",
-        "Sorting Algorithms",
-        "Dynamic Programming",
-        "Greedy Algorithms",
-        "Backtracking",
+      "Linked Lists",
+      "Stacks",
+      "Queues",
+      "Trees",
+      "Graphs",
+      "Hashing",
+      "Sorting Algorithms",
+      "Dynamic Programming",
+      "Greedy Algorithms",
+      "Backtracking",
     ],
-    }
+  }
 ];
 
 const SkillsSection = () => (
@@ -99,12 +100,7 @@ const SkillsSection = () => (
             </h3>
             <div className="flex flex-wrap gap-2">
               {category.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3 py-1.5 border border-black/5 text-xs font-medium hover:border-black hover:bg-black hover:text-white transition-all duration-300 cursor-default"
-                >
-                  {skill}
-                </span>
+                <SkillBadge key={skill} skill={skill} />
               ))}
             </div>
           </div>

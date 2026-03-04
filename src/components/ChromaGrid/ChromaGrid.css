@@ -1,0 +1,411 @@
+/* ─── Grid wrapper ─────────────────────────────────────────── */
+.chroma-grid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
+    grid-auto-rows: auto;
+    justify-content: center;
+    gap: 1.25rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* Match page background so backdrop-filter overlays are invisible in gaps */
+    background: hsl(0 0% 96%);
+
+    /* These are updated by GSAP to track the mouse */
+    --x: 50%;
+    --y: 50%;
+    --r: 300px;
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+    .chroma-grid {
+        max-width: 1500px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .chroma-grid {
+        grid-template-columns: 320px;
+        gap: 0.75rem;
+        padding: 0;
+    }
+}
+
+/* ─── Individual Card ──────────────────────────────────────── */
+.chroma-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: auto;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    background: var(--card-gradient);
+
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --spotlight-color: rgba(255, 255, 255, 0.18);
+}
+
+.chroma-card:hover {
+    border-color: var(--card-border);
+    transform: translateY(-4px);
+}
+
+/* White spotlight follows the mouse inside each card */
+.chroma-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y),
+            var(--spotlight-color),
+            transparent 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+
+.chroma-card:hover::before {
+    opacity: 1;
+}
+
+/* ─── Card Image ───────────────────────────────────────────── */
+.chroma-img-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.chroma-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.chroma-card:hover .chroma-img-wrapper img {
+    transform: scale(1.04);
+}
+
+/* ─── Card Body ─────────────────────────────────────────────── */
+.chroma-body {
+    position: relative;
+    z-index: 1;
+    padding: 1.1rem 1.25rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.chroma-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.chroma-shipped-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.62rem;
+    font-weight: 800;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+}
+
+.chroma-wip-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.62rem;
+    font-weight: 800;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+}
+
+.chroma-lock-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.62rem;
+    font-weight: 800;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+}
+
+/* ─── Card Footer Info ─────────────────────────────────────── */
+.chroma-info {
+    position: relative;
+    z-index: 1;
+    padding: 0 1.25rem 1.25rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.chroma-info .name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: #fff;
+}
+
+.chroma-info .role {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.8rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.chroma-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+}
+
+.chroma-tag {
+    font-size: 0.6rem;
+    font-weight: 700;
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 0.15rem 0.45rem;
+}
+
+/* ─── Card Links ────────────────────────────────────────────── */
+.chroma-links {
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.75rem 1.25rem 1.25rem;
+    position: relative;
+    z-index: 5;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.chroma-link-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.chroma-link-btn.ghost {
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chroma-link-btn.ghost:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.chroma-link-btn.solid {
+    color: #000;
+    background: #fff;
+    border: 1px solid #fff;
+}
+
+.chroma-link-btn.solid:hover {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* ─── Grayscale Overlay (dims cards away from cursor) ─────── */
+.chroma-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    backdrop-filter: grayscale(1) brightness(0.72);
+    -webkit-backdrop-filter: grayscale(1) brightness(0.72);
+    background: rgba(0, 0, 0, 0.001);
+
+    mask-image: radial-gradient(circle var(--r) at var(--x) var(--y),
+            transparent 0%,
+            transparent 15%,
+            rgba(0, 0, 0, 0.10) 30%,
+            rgba(0, 0, 0, 0.22) 45%,
+            rgba(0, 0, 0, 0.35) 60%,
+            rgba(0, 0, 0, 0.50) 75%,
+            rgba(0, 0, 0, 0.68) 88%,
+            white 100%);
+    -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y),
+            transparent 0%,
+            transparent 15%,
+            rgba(0, 0, 0, 0.10) 30%,
+            rgba(0, 0, 0, 0.22) 45%,
+            rgba(0, 0, 0, 0.35) 60%,
+            rgba(0, 0, 0, 0.50) 75%,
+            rgba(0, 0, 0, 0.68) 88%,
+            white 100%);
+}
+
+/* ─── Fade Layer (fades in when mouse leaves the grid) ─────── */
+.chroma-fade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 4;
+    backdrop-filter: grayscale(1) brightness(0.72);
+    -webkit-backdrop-filter: grayscale(1) brightness(0.72);
+    background: rgba(0, 0, 0, 0.001);
+
+    mask-image: radial-gradient(circle var(--r) at var(--x) var(--y),
+            white 0%,
+            white 15%,
+            rgba(255, 255, 255, 0.90) 30%,
+            rgba(255, 255, 255, 0.78) 45%,
+            rgba(255, 255, 255, 0.65) 60%,
+            rgba(255, 255, 255, 0.50) 75%,
+            rgba(255, 255, 255, 0.32) 88%,
+            transparent 100%);
+    -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y),
+            white 0%,
+            white 15%,
+            rgba(255, 255, 255, 0.90) 30%,
+            rgba(255, 255, 255, 0.78) 45%,
+            rgba(255, 255, 255, 0.65) 60%,
+            rgba(255, 255, 255, 0.50) 75%,
+            rgba(255, 255, 255, 0.32) 88%,
+            transparent 100%);
+
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+/* ─── "Revealing Soon" special card ─────────────────────────── */
+.chroma-card.chroma-card--locked {
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.12);
+    cursor: default;
+}
+
+.chroma-card.chroma-card--locked:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: none;
+}
+
+.chroma-card--locked .chroma-lock-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    z-index: 1;
+    padding: 2rem;
+}
+
+.chroma-card--locked .lock-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04);
+    transition: all 0.3s ease;
+}
+
+.chroma-card--locked:hover .lock-icon-wrap {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.chroma-card--locked .lock-title {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: rgba(255, 255, 255, 0.15);
+    transition: color 0.3s ease;
+}
+
+.chroma-card--locked:hover .lock-title {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.chroma-card--locked .lock-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.2);
+    transition: color 0.3s ease;
+}
+
+.chroma-card--locked:hover .lock-sub {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.chroma-card--locked .lock-pill {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    padding: 0.25rem 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.chroma-card--locked:hover .lock-pill {
+    color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.3);
+}

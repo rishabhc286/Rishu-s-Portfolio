@@ -97,20 +97,24 @@
   }
 
   @keyframes float {
+
     0%,
     100% {
       transform: translateY(0px);
     }
+
     50% {
       transform: translateY(-6px);
     }
   }
 
   @keyframes breathe {
+
     0%,
     100% {
       transform: translateY(0px) scale(1);
     }
+
     50% {
       transform: translateY(-2px) scale(1.01);
     }
@@ -120,15 +124,19 @@
     0% {
       transform: scale(1);
     }
+
     14% {
       transform: scale(1.3);
     }
+
     28% {
       transform: scale(1);
     }
+
     42% {
       transform: scale(1.3);
     }
+
     70% {
       transform: scale(1);
     }
@@ -142,6 +150,7 @@
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-50%);
     }
@@ -154,4 +163,75 @@
   .animate-marquee-reverse {
     animation: marquee 60s linear infinite reverse;
   }
+}
+
+/* ─── Skill Badge ─────────────────────────────────────────────────── */
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    padding 0.25s ease;
+  white-space: nowrap;
+}
+
+.skill-badge:hover {
+  border-color: #000;
+  background: #000;
+  color: #fff;
+}
+
+/* Icon — hidden off to the left, slides in */
+.skill-badge__icon {
+  display: inline-flex;
+  align-items: center;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-width 0.25s ease, opacity 0.25s ease, margin-right 0.25s ease;
+  margin-right: 0;
+}
+
+.skill-badge__icon--visible {
+  max-width: 20px;
+  opacity: 1;
+  margin-right: 6px;
+}
+
+/* Invert dark icons (GitHub, Express, Vercel) to white on hover */
+.skill-badge:hover .skill-badge__icon img {
+  filter: brightness(0) invert(1);
+}
+
+/* For icons that are already colorful — keep color (remove invert) */
+.skill-badge:hover .skill-badge__icon img[src*="javascript"],
+.skill-badge:hover .skill-badge__icon img[src*="html5"],
+.skill-badge:hover .skill-badge__icon img[src*="css3"],
+.skill-badge:hover .skill-badge__icon img[src*="react"],
+.skill-badge:hover .skill-badge__icon img[src*="typescript"],
+.skill-badge:hover .skill-badge__icon img[src*="tailwind"],
+.skill-badge:hover .skill-badge__icon img[src*="nodejs"],
+.skill-badge:hover .skill-badge__icon img[src*="firebase"],
+.skill-badge:hover .skill-badge__icon img[src*="mongodb"],
+.skill-badge:hover .skill-badge__icon img[src*="java"],
+.skill-badge:hover .skill-badge__icon img[src*="python"],
+.skill-badge:hover .skill-badge__icon img[src*="blender"],
+.skill-badge:hover .skill-badge__icon img[src*="ubuntu"],
+.skill-badge:hover .skill-badge__icon img[src*="aftereffects"],
+.skill-badge:hover .skill-badge__icon img[src*="figma"],
+.skill-badge:hover .skill-badge__icon img[src*="git/"],
+.skill-badge:hover .skill-badge__icon img[src*="webstorm"],
+.skill-badge:hover .skill-badge__icon img[src*="intellij"],
+.skill-badge:hover .skill-badge__icon img[src*="google"] {
+  filter: none;
 }
