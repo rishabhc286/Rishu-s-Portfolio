@@ -67,6 +67,7 @@ const skillCategories = [
   {
     title: "Data Structures & Algorithms",
     skills: ["Arrays",
+<<<<<<< HEAD
       "Linked Lists",
       "Stacks",
       "Queues",
@@ -77,6 +78,18 @@ const skillCategories = [
       "Dynamic Programming",
       "Greedy Algorithms",
       "Backtracking",
+=======
+        "Linked Lists",
+        //"Stacks",
+        //"Queues",
+        //"Trees",
+        //"Graphs",
+        "Hashing",
+        "Sorting Algorithms",
+        //"Dynamic Programming",
+        //"Greedy Algorithms",
+        //"Backtracking",
+>>>>>>> cbd3f6d8a2c0374704ffb1f063c91959c11e31c3
     ],
   }
 ];
