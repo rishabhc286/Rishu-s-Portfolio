@@ -78,16 +78,6 @@ const skillCategories = [
       //"Dynamic Programming",
       //"Greedy Algorithms",
       //"Backtracking",
-        //"Linked Lists",
-        //"Stacks",
-        //"Queues",
-        //"Trees",
-        //"Graphs",
-        "Hashing",
-        "Sorting Algorithms",
-        //"Dynamic Programming",
-        //"Greedy Algorithms",
-        //"Backtracking",
     ],
   }
 ];
