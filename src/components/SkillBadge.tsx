@@ -23,6 +23,8 @@ const ICON_MAP: Record<string, string> = {
         "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
     MongoDB:
         "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
+    "Java (Core + OOPs)":
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
 
     // Languages
     Java: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
@@ -36,6 +38,8 @@ const ICON_MAP: Record<string, string> = {
         "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg",
     Figma:
         "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",
+    Maven:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg",
     Vercel:
         "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg",
     "Ubuntu Linux":
@@ -52,6 +56,13 @@ const ICON_MAP: Record<string, string> = {
     // AI Integration — custom icon
     "AI Integration":
         "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg",
+
+    // CSE Core
+    OOPs: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
+    "Frontend Development":
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+    "Backend Development":
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
 
     // DSA — no icons, keep plain
 };
