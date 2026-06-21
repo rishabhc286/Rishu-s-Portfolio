@@ -25,9 +25,9 @@ const skillCategories = [
   // },
   {
     title: "Backend & DB",
-    skills: ["Node.js",
+    skills: [
+      "Java (Core + OOPs)",
       "Firebase",
-      "Express.js",
       // "MongoDB",
       // "Hive",
       // "REST APIs"
@@ -44,17 +44,19 @@ const skillCategories = [
   },
   {
     title: "Tools & Others",
-    skills: ["Git",
+    skills: [
+      "Git",
       "GitHub",
       // "Figma",
       // "Vitest",
       // "Lucide React",
+      "Maven",
       "Vercel",
       "Ubuntu Linux",
       "Webstorm",
       "Intellij IDEA",
       "After Effects",
-      "Blender"
+      "Blender",
     ],
   },
   {
@@ -62,6 +64,14 @@ const skillCategories = [
     skills: ["Java",
       "Python",
       "C",
+    ],
+  },
+  {
+    title: "CSE Core",
+    skills: [
+      "OOPs",
+      "Frontend Development",
+      "Backend Development",
     ],
   },
   {
