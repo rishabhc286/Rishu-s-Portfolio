@@ -59,10 +59,6 @@ const ICON_MAP: Record<string, string> = {
 
     // CSE Core
     OOPs: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
-    "Frontend Development":
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
-    "Backend Development":
-        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
 
     // DSA — no icons, keep plain
 };

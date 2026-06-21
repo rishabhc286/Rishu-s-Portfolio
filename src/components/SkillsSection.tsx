@@ -70,8 +70,6 @@ const skillCategories = [
     title: "CSE Core",
     skills: [
       "OOPs",
-      "Frontend Development",
-      "Backend Development",
     ],
   },
   {
